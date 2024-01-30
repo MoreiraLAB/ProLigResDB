@@ -9,7 +9,7 @@ __group_leader__ = "Irina S. Moreira"
 __project__ = "ProLigResDB: A Comprehensive Repository of Experimental Protein Residue-Ligand Interactions from Protein Data Bank"
 
 from Bio.PDB import *
-from ProLigRes_variables import INPUT_FOLDER, PDB_FOLDER
+from ProLigRes_variables import INPUT_FOLDER, PDB_FOLDER, PDB_INPUT
 import os
 
 print("######## ProLigRes- PDB download ########")
@@ -38,9 +38,9 @@ def download_pdb(pdb_list):
     pdbl.download_pdb_files(pdb_list, pdir=PDB_FOLDER, obsolete=False, file_format="pdb")
 
 # Get PDB IDS as a list fromo file "pdb_ids.txt"
-ids_list = open_file(INPUT_FOLDER+"pdb_ids.txt")[0]
+ids_list = open_file(INPUT_FOLDER+PDB_INPUT)[0]
 # Dowload all PDB files to PDB folder
 pdb_download=download_pdb(ids_list)
 
-print("- PDB ids from "+INPUT_FOLDER+"pdb_ids.txt \ndownloaded to "+PDB_FOLDER +" in .ent format.")
+print("- PDB ids from "+INPUT_FOLDER+PDB_INPUT+"\ndownloaded to "+PDB_FOLDER +" in .ent format.")
 print("#########################################")
