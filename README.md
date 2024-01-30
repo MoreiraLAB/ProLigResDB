@@ -35,7 +35,9 @@ Required information to replicate ProLigResDB is described in this Repository.
  Please change your home directory in the DEFAULT_LOCATION variable.
  
  1) **```1_pdb_download.py```** - Downloads PDB files in .ent format from ./INPUT/pdb_ids.txt PDB ID list to a new folder ./INPUT/PDB/
+
     INPUT FILES: (path: "./INPUT/") "pdb_ids.txt" - list with PDB IDS
+
     OUTPUT FILES: (path: "./INPUT/PDB/") - Folder with downloaded PDB files
 
 ```bash
@@ -44,9 +46,11 @@ python3 1_pdb_download.py
 
   2) **```2_pdb_to_csv.py```** - Saves PDB important information in .csv format, in a new folder ./INPUT/CSV/. Cleans the ligand dataset, selecting only a list of compounds of interest. Creates a ./DATA_ANALYSIS/ folder with several Data information.
      It uses **```compound_dictionary.py```** and **```functions_pdb_to_csv.py```** scripts to select compounds of interest and to save PDB information in .csv files.
+     
      INPUT FILES:
        - (path: "./INPUT/PDB/") - Folder with downloaded PDB files
        - (path: "./INPUT/") "ligand.txt" - File with PDB compound dictionary information
+  
      OUTPUT FILES:
         - (path: "./INPUT/CSV/") - Folder with important information from PDB files, saved in CSV format
         - (path: "./DATA_ANALYSIS/")
@@ -62,11 +66,13 @@ python3 2_pdb_to_csv.py
 ```
 
 3) **```3-build_class.py```** - Creates a new folder ./H5_FILES/ and saves a .h5 file with protein residue classes: class_5A.hdf5 and a .txt file with class keys: class_keys.txt
+   
    INPUT FILES:
      - (path: "./DATA_ANALYSIS/")
        - "pdb_sum_info.csv" - summarized information for each PDB ID entry
        - "ligands_dict_clean.csv" - dictionary with information on selected ligands
      - (path: "./INPUT/CSV/") - Folder with important information from PDB files, saved in CSV format
+       
    OUTPUT FILES:
       - (path: "./H5_FILES/") - Folder with class H5 file
         - "class_5A.hdf5" - h5 file with protein residue classes
@@ -79,8 +85,10 @@ python3 3-build_class.py
 ```
 
 4) **```4-mordred_features.py```** - Runs Mordred descriptors for selected compounds of interest and stores all descriptors in ./FEATURES/MORDRED/ folder. Saves a .h5 file with Mordred descriptors in ./H5_FILES/ folder: mordred.hdf5 and a .txt file with mordred keys: mordred_keys.txt
+   
    INPUT FILES:
      - (path: "./DATA_ANALYSIS/") "ligands_dict_clean.csv" - dictionary with information on selected ligands
+       
    OUTPUT FILES:
      - (path: "./FEATURES/")
        - Folder with descriptors and feature information
@@ -97,10 +105,12 @@ python3 4-mordred_features.py
 
 5) **```5-spotone_features.py```** - Runs SPOTONE descriptors for selected protien chains and stores all descriptors in ./FEATURES/SPOTONE/ folder. Saves a .h5 file with SPOTONE descriptors in ./H5_FILES/ folder: spotone.hdf5 and a .txt file with SPOTONE keys: spotone_keys.txt
    It uses **```spotone.py```** script to run SPOTONE descriptors.
+   
    INPUT FILES:
      - (path: "./DATA_ANALYSIS/")
          - "pdb_sum_info.csv" - summarized information for each PDB ID entry
          - "pdb_protein_sequences.csv" - chain sequence information and equal chains within the same PDB ID
+           
    OUTPUT FILES:
      - (path: "./FEATURES/")
          - "proteins.fasta" - FASTA file with interacting protein chains
