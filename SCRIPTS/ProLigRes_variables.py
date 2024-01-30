@@ -2,6 +2,9 @@ import csv
 
 """
 Variables useful for the bulk of ProLigRes project
+Please change DEFAULT_LOCATION to your location
+Default is to run a test subset with "pdb_ids_test.txt" and "ligands_test.txt" files.
+If you want to run the hole dataset, please change variables PDB_INPUT and LIGAND_INPUT to "pdb_ids.txt" and "ligands.txt"
 """
 
 __author__ = "C. Marques-Pereira"
@@ -14,7 +17,9 @@ __project__ = "ProLigResDB: A Comprehensive Repository of Experimental Protein R
 Folder locations
 """
 
-DEFAULT_LOCATION = "Change/to/user/location/ProLigResDB/"
+DEFAULT_LOCATION = "/home/user/ProLigResDB/GITHUB/" #"Change/to/user/location/ProLigResDB/"
+PDB_INPUT = "pdb_ids_test.txt" # If you want to run the hole daataset, change to "pdb_ids.txt"
+LIGAND_INPUT = "ligands_test.txt" # If you want to run the hole daataset, change to "ligands.txt"
 SCRIPT_FOLDER = DEFAULT_LOCATION + "SCRIPTS/"
 INPUT_FOLDER = DEFAULT_LOCATION + "INPUT/"
 PDB_FOLDER = INPUT_FOLDER + "PDB/"
