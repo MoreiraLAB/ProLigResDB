@@ -1,4 +1,4 @@
-from ProLigRes_variables import open_txt_file, write_csv, polymer_type_dict, hetatm_type_dict, INPUT_FOLDER, DATA_ANALYSIS_FOLDER
+from ProLigRes_variables import open_txt_file, write_csv, polymer_type_dict, hetatm_type_dict, INPUT_FOLDER, DATA_ANALYSIS_FOLDER, LIGAND_INPUT
 import os
 
 if not os.path.exists(DATA_ANALYSIS_FOLDER):
@@ -99,7 +99,7 @@ ligands is a variable with all lines from ligand dictionary (= ligands_txt), ope
 ligand_clean saves the information (ID, name, type and pdbx_type) from compounds on ligands variable using the info_ligands_file function from functions_clean_ligands_list script
 ligand_clean_dict.csv will be saved with the information from ligand_clean using the function write_csv from functions_clean_ligands_list
 """
-ligands = open_txt_file(INPUT_FOLDER+"ligands.txt")
+ligands = open_txt_file(INPUT_FOLDER+LIGAND_INPUT)
 ligand_clean = info_ligands_file(ligands, '_chem_comp.id,_chem_comp.name,_chem_comp.type,_chem_comp.pdbx_type,SMILES_CANONICAL "OpenEye OEToolkits"')
 write_csv(DATA_ANALYSIS_FOLDER+"ligands_dict_clean.csv", ligand_clean, ["ID", "Name", "polymer_type", "hetatm_type", "smiles"])
 
