@@ -16,7 +16,7 @@ ProLigResDB was developed and tested as follows:
 
 We recommend creating an isolated Conda environment to run our pipeline, which can be performed using the following code:
 ```bash
-conda create --name ProLigRes python=3.9.16 -c conda-forge biopython pandas scipy h5py pyarrow numpy rdkit mordred
+conda create --name ProLigRes python=3.9.16 -c conda-forge biopython pandas scipy h5py pyarrow numpy rdkit mordred requests
 conda activate ProLigRes
 ```
 Note: The environment name, defined after the "--name" argument in the first step, can be whatever the user desires.
