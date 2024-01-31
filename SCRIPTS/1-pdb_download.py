@@ -9,10 +9,27 @@ __group_leader__ = "Irina S. Moreira"
 __project__ = "ProLigResDB: A Comprehensive Repository of Experimental Protein Residue-Ligand Interactions from Protein Data Bank"
 
 from Bio.PDB import *
-from ProLigRes_variables import INPUT_FOLDER, PDB_FOLDER, PDB_INPUT
+from ProLigRes_variables import INPUT_FOLDER, PDB_FOLDER, PDB_INPUT, LIGAND_INPUT
 import os
+import requests
+import gzip
+import shutil
 
 print("######## ProLigRes- PDB download ########")
+
+# Download Ligand dictionary if LIGAND_INPUT is "ligands.txt"
+if LIGAND_INPUT == "ligands.txt":
+    url = 'https://files.wwpdb.org/pub/pdb/data/monomers/components.cif.gz'
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        with open(os.path.join(INPUT_FOLDER, 'components.cif.gz'), 'wb') as f:
+            f.write(response.content)
+
+        with gzip.open(os.path.join(INPUT_FOLDER, 'components.cif.gz'), 'rb') as f_in, open(INPUT_FOLDER + LIGAND_INPUT, 'wb') as f_out:
+            shutil.copyfileobj(f_in, f_out)
+        os.remove(INPUT_FOLDER+'components.cif.gz')
+        print(f'- Ligand dictionary downloaded as {INPUT_FOLDER + LIGAND_INPUT}')
 
 # Create a new folder to save PDB files
 if not os.path.exists(PDB_FOLDER):
