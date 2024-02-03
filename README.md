@@ -40,7 +40,7 @@ Data .H5 files regardinig protein chain residue classification, Mordred descript
  4) "class_keys.txt"- file with the 280.092 "class_5A.hdf5" keys (PDB:chain_compound).
  5) "mordred_keys.txt"- file with the 25.958 "mordred.hdf5" keys (PDB compound ID).
  6) "mordred_descriptors.txt"- file with the 1514 Mordred descriptors described in "mordred.hdf5".
- 7) "spotone_keys.txt"- file with the 165.000 "spotone.hdf5" keys (PDB:chain).
+ 7) "spotone_keys.txt"- file with the 131.777 keys for the 165.000 chains in "spotone.hdf5" (PDB:chain).
  8) "spotone_descriptors.txt"- file with the 173 SPOTONE descriptors described in "spotone.hdf5".
  9) "ProLigResDB_ligands_dict_clean.csv"- file with the compound PDB dictionary with PDB compound ID, name, polymer type, hetatm type and SMILE information.
  10) "ProLigResDB_pdb_sum_info.csv"- file with PDB data analysis.
