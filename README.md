@@ -29,12 +29,6 @@ Note: The environment name, defined after the "--name" argument in the first ste
 
 Required information to replicate ProLigResDB is described in this Repository.
 
-### Input files:
-./INPUT/ folder contains a test input to run a test subdata of ProLigResDB and inputs to run all PDB files in ProLigResDB.
- 1) "pdb_ids.txt" or "pdb_ids_test.txt" - Input files with PDB IDs ("pdb_ids_test.txt" is a small subset of "pdb_ids.txt").
- 2) "ligands.txt" or "ligands_test.txt" - Input files with ligand PDB IDs ("ligands_test.txt" is a small subset of "ligand.txt"). File "ligands.txt" will be downloaded to the correct path from the PDB website when running **```1_pdb_download.py```** script.
- 3) ./INPUT/RESOURCES/ - Folder with resources used to run SPOTONE descriptors.
-
 ### ProLigResDB:
 Data .H5 files regardinig protein chain residue classification, Mordred descriptors and SPOTONE features are available in this [link]().
 
@@ -51,8 +45,15 @@ Data .H5 files regardinig protein chain residue classification, Mordred descript
  9) "ProLigResDB_ligands_dict_clean.csv"- file with the compound PDB dictionary with PDB compound ID, name, polymer type, hetatm type and SMILE information.
  10) "ProLigResDB_pdb_sum_info.csv"- file with PDB data analysis.
 
+### Dataset Replication:
+### A) Input files:
+./INPUT/ folder contains a test input to run a test subdata of ProLigResDB and inputs to run all PDB files in ProLigResDB.
+ 1) "pdb_ids.txt" or "pdb_ids_test.txt" - Input files with PDB IDs ("pdb_ids_test.txt" is a small subset of "pdb_ids.txt").
+ 2) "ligands.txt" or "ligands_test.txt" - Input files with ligand PDB IDs ("ligands_test.txt" is a small subset of "ligand.txt"). File "ligands.txt" will be downloaded to the correct path from the PDB website when running **```1_pdb_download.py```** script.
+ 3) ./INPUT/RESOURCES/ - Folder with resources used to run SPOTONE descriptors.
 
-### Scripts:
+
+### B) Scripts:
 ./SCRIPTS/ folder contains all scripts necessary to run ProLigResDB
  0) **```ProLigRes_variables.py```** - Includes several variables and functions that are called throughout the pipeline.
  Please change your home directory in the DEFAULT_LOCATION variable.
