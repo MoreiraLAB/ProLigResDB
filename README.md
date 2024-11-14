@@ -42,8 +42,10 @@ Data .H5 files regardinig protein chain residue classification, Mordred descript
  6) "mordred_descriptors.txt"- file with the 1514 Mordred descriptors described in "mordred.hdf5".
  7) "spotone_keys.txt"- file with the 131.777 keys for the 165.000 chains in "spotone.hdf5" (PDB:chain).
  8) "spotone_descriptors.txt"- file with the 173 SPOTONE descriptors described in "spotone.hdf5".
- 9) "ProLigResDB_ligands_dict_clean.csv"- file with the compound PDB dictionary with PDB compound ID, name, polymer type, hetatm type and SMILE information.
- 10) "ProLigResDB_pdb_sum_info.csv"- file with PDB data analysis.
+ 9)  "pssm_keys.txt"- file with the 131.777 keys for the 165.000 chains in "pssm.hdf5" (PDB:chain).
+ 10) "pssm_descriptors.txt"- file with the 42 PSSM descriptors described in "pssm.hdf5".
+ 11) "ProLigResDB_ligands_dict_clean.csv"- file with the compound PDB dictionary with PDB compound ID, name, polymer type, hetatm type and SMILE information.
+ 12) "ProLigResDB_pdb_sum_info.csv"- file with PDB data analysis.
 
 ### Dataset Replication:
 ### A) Input files:
@@ -146,6 +148,23 @@ python3 4-mordred_features.py
 
 ```bash
 python3 5-spotone_features.py
+```
+
+6) **```6-pssm_features.py```** - Downloads a database needed to run pssm features to ./RESOURCES/BLAST/ folder. Runs PSSM descriptors for selected protien chains and stores all descriptors in ./FEATURES/PSSM/ folder. Saves a .h5 file with PSSM descriptors in ./H5_FILES/ folder: pssm.hdf5 and a .txt file with PSSM keys: pssm_keys.txt
+   
+   INPUT FILES:
+     - (path: "./FEATURES/")
+         - "proteins.fasta" - FASTA file with interacting protein chains
+           
+   OUTPUT FILES:
+     - (path: "./FEATURES/PSSM/")
+         - Creates PSSM folder with individual fasta for each chain and spotone features
+     - (path: "./H5_FILES/")
+         - "pssm.hdf5" - H5 file with pssm descriptors, key is PDB:Chain
+         - "pssm_keys.txt" - txt with pssm keys
+
+```bash
+python3 6-pssm_features.py
 ```
 
 ### If you use our database, please cite the following.
